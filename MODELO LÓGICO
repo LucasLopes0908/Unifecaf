@@ -1,0 +1,43 @@
+Tabelas e atributos:
+
+tbl_clientes (
+  id_cliente INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100),
+  cpf CHAR(11),
+  telefone VARCHAR(15)
+)
+
+tbl_colaboradores (
+  id_colaborador INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100),
+  cargo VARCHAR(50),
+  data_admissao DATE
+)
+
+tbl_produtos (
+  id_produto INT PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(100),
+  categoria VARCHAR(50),
+  preco DECIMAL(10,2),
+  estoque INT
+)
+
+tbl_vendas (
+  id_venda INT PRIMARY KEY AUTO_INCREMENT,
+  id_cliente INT,
+  id_colaborador INT,
+  data_hora DATETIME,
+  forma_pagamento VARCHAR(20),
+  FOREIGN KEY (id_cliente) REFERENCES tbl_clientes(id_cliente),
+  FOREIGN KEY (id_colaborador) REFERENCES tbl_colaboradores(id_colaborador)
+)
+
+tbl_itens_venda (
+  id_item INT PRIMARY KEY AUTO_INCREMENT,
+  id_venda INT,
+  id_produto INT,
+  quantidade INT,
+  preco_unitario DECIMAL(10,2),
+  FOREIGN KEY (id_venda) REFERENCES tbl_vendas(id_venda),
+  FOREIGN KEY (id_produto) REFERENCES tbl_produtos(id_produto)
+)
