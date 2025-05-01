@@ -1,0 +1,6 @@
+Entidades principais:
+- Cliente (id_cliente, nome, cpf, telefone)
+- Colaborador (id_colaborador, nome, cargo, data_admissao)
+- Produto (id_produto, nome, categoria, preco, estoque)
+- Venda (id_venda, id_cliente, id_colaborador, data_hora, forma_pagamento)
+- ItemVenda (id_item, id_venda, id_produto, quantidade, preco_unitario)
